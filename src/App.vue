@@ -1,22 +1,18 @@
 <template>
   <div id="app">
-
-    <nav class="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>|
-      <router-link to="/element">Element</router-link>|
-      <router-link to="/form">Form</router-link>|
-      <router-link to="/alert">Alert</router-link>
-    </nav>
-
+    <Nav></Nav>
+    <hr />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Nav from "@/components/Nav";
 export default {
   name: "App",
-  components: {}
+  components: {
+    Nav
+  }
 };
 </script>
 
@@ -28,18 +24,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-
-  .nav {
-    padding: 30px;
-    a {
-      padding: 30px;
-      font-weight: bold;
-      color: #2c3e50;
-    }
-
-    a.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>
