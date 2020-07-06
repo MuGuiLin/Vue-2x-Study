@@ -83,7 +83,7 @@
 
           provide 与 inject 
         <code>
-          当跨层级、隔代的组件的层级超过了两层时选用
+          当跨层级、隔代的组件的层级超过了两层时选用，注： provide 与 inject 必须成对的，默认数据不是响应式的（如果数据是一个引用类型，就可以响应式）
           // ancestor 祖先组件 写在和data(){}平级的任意位置
           provide() {
             return {
@@ -133,6 +133,16 @@
         </code>
 
         vuex
+        <code>
+          vuex 是一个状态管理器；它是一个独立的插件,适合数据共享多的项目里面,因为如果只是简单的通讯,使用起来会比较重；
+
+          vuex中的store包含了以下对象属性：
+            state:{},   // 定义存贮数据的仓库 ,可通过this.$store.state 或mapState访问
+            getter:{},  // 获取 store 值,可认为是 store 的计算属性,可通过this.$store.getter 或 mapGetters访问
+            mutation:{},// 同步改变 store 值,为什么会设计成同步,因为mutation是直接改变 store 值, vue 对操作进行了记录,如果是异步无法追踪改变.可通过mapMutations调用
+            action:{},  // 异步调用函数执行mutation,进而改变 store 值,可通过 this.$dispatch或mapActions 访问
+            modules:{}  // 模块,如果状态过多,可以拆分成模块,最后在入口通过...解构引入
+        </code>
     </pre>
 
     <input type="text" v-model="msg" ref="input" />
