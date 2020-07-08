@@ -2,6 +2,11 @@
   <section class="components">
     <h1>Vue组件的各件通信方式</h1>
     <pre class="pre">
+      <b>组件通信常用方式：</b>
+        props:{}，$emit()/$on()，全局跨层级(event bus，vuex)
+      <b>边界情况：</b>
+        $root，$parent，$children(前面这3个，耦合性太高，不推荐用)，$refs，$attrs/$listeners(非props特性)，provide()/inject[](非数据响应式)
+
       <b>父子组件通信</b>
         props
         <code>
@@ -55,8 +60,21 @@
         </code>
 
       <b>兄弟组件通信</b>
+      $root / $parent
+        <code>
+          // 兄弟组件之间通信可以通过【共同祖先 或 共同父级】来搭桥做中间人(event bus 就是这个原理)
 
-        $parent.$children[]
+          this.$root.$emit('mupiao', 2048)
+          this.$root.$on('mupiao', msg => {
+              console.log(msg)
+          });
+
+          this.$parent.$emit('mupiao', 2048)
+          this.$parent.$on('mupiao', msg => {
+              console.log(msg)
+          });
+        </code>
+       
 
       <b>祖代与后代组件通信（隔层传参）</b>
           $attrs 与 $listeners
@@ -140,7 +158,7 @@
             state:{},   // 定义存贮数据的仓库 ,可通过this.$store.state 或mapState访问
             getter:{},  // 获取 store 值,可认为是 store 的计算属性,可通过this.$store.getter 或 mapGetters访问
             mutation:{},// 同步改变 store 值,为什么会设计成同步,因为mutation是直接改变 store 值, vue 对操作进行了记录,如果是异步无法追踪改变.可通过mapMutations调用
-            action:{},  // 异步调用函数执行mutation,进而改变 store 值,可通过 this.$dispatch或mapActions 访问
+            action:{},  // 异步调用函数执行mutation中的方法,进而改变 store 值,可通过 this.$dispatch或mapActions 访问
             modules:{}  // 模块,如果状态过多,可以拆分成模块,最后在入口通过...解构引入
         </code>
     </pre>
