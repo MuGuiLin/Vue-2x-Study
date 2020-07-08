@@ -19,7 +19,8 @@ export default {
         { path: "/alert", icon: "", name: "Alert" },
         { path: "/router", icon: "", name: "Router" },
         { path: "/vuex", icon: "", name: "Vuex" },
-        { path: "/muvuex", icon: "", name: "muVuex" }
+        { path: "/muvuex", icon: "", name: "muVuex" },
+        { path: "/muvue", icon: "", name: "muVue" },
       ]
     };
   }

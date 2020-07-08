@@ -168,6 +168,7 @@ export default {
     b {
       display: inline-block;
       margin-top: 30px;
+      color: #15bc20;
     }
   }
 }

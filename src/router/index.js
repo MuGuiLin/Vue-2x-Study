@@ -97,6 +97,11 @@ const routes = [
     component: () => import('../views/Alert.vue')
   },
   {
+    path: '/muvue',
+    name: 'muVue',
+    component: () => import('../views/muVue.vue')
+  },
+  {
     path: '*',
     name: 'NotFound',
     component: () => import('../views/NotFound.vue')

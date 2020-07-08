@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.defluproerty()</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Vue2.0 数据响应式核心方法 之 Object.defluproerty(obj, key {get(){}, set(){}})</h1>
+    <hr>
+
+    <div id="app"></div>
+
+    <script>
+        // Vue2.0 data数据响应式原理 Object.defineProperty()
+
+        // 监听对象中的属性
+        function DefineProperty(obj, key, val) {
+
+            // 用Object.defineProperty()的特性，拦截数据的状态，达到数据响应式效果
+            Object.defineProperty(obj, key, {
+                // 访问：获取对象属性时
+                get() {
+                    console.log('属性：', val, '被访问了');
+                    return val;
+                },
+
+                // 修改：给对象属性设置新值时
+                set(newVal) {
+                    if (val !== newVal) {
+                        console.log('属性：', val, '被修改为：', newVal)
+                        val = newVal;
+
+                        // 当监听到属性被修改时，更新DOM
+                        render()
+                    }
+                }
+            })
+        };
+
+        function render() {
+            document.querySelector('#app').innerHTML = obj.text;
+        };
+
+        const obj = {};
+        DefineProperty(obj, 'text', ''); 
+
+        setInterval(() => {
+            obj.text = new Date().toLocaleTimeString()
+        }, 1000);
+    </script>
+</body>
+
+</html>

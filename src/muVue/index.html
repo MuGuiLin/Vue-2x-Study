@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.defluproerty()</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>手写 MVVM</h1>
+    <hr>
+
+    <div id="app">
+        <h2>{{time}}</h2>
+    </div>
+
+    <script src="./index.js"></script>
+    <script>
+        
+        const app = new muVue({
+            el: '#app',
+            data: {
+                time: null
+            }
+        });
+
+        setInterval(() => {
+            app.time = new Date().toLocaleTimeString()
+        }, 1000);
+        
+    </script>
+</body>
+
+</html>
