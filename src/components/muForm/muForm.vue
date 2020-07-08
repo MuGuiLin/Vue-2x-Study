@@ -46,7 +46,7 @@ export default {
 
       // const tasks = this.$children.filter(item => item.prop).map(item => item.validate());
 
-      // 将this.muFormItems中存储的所有子组件muFormItem方法转换为Promise数组，这里借鉴了ElementUI中的源码，然后经过mixins混入方式，在子组件muFormItem创建时，判断是否需要校验，如果要校验，就触发父组件muForm，把自己保存到muFormItems中
+      // 将this.muFormItems中存储的所有子组件muFormItem方法转换为Promise数组，这里借鉴了ElementUI中的源码，然后经过mixins混入方式，在子组件muFormItem创建时，判断是否需要校验，如果要校验，就触发父组件muForm，把自己保存到muFormItems中，这样就和this.$children去获取子组件的方式彻底解耦啦！
       const tasks = this.muFormItems.map(item => item.validate());
 
       Promise.all(tasks)
