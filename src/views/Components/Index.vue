@@ -11,7 +11,7 @@
       <router-link to="/components/Mixins">混入mixins</router-link>
     </nav>
 
-    <p>vue组件系统提供了⼀种抽象，让我们可以使⽤独⽴可复⽤的组件来构建⼤型应⽤，任意类型的应⽤界⾯都可以抽象为⼀个组件树。组件化能提⾼开发效率，⽅便重复使⽤，简化调试步骤，提升项⽬可维护性，便于多⼈协同开发。</p>
+    <p class="p">vue组件系统提供了⼀种抽象，让我们可以使⽤独⽴可复⽤的组件来构建⼤型应⽤，任意类型的应⽤界⾯都可以抽象为⼀个组件树。组件化能提⾼开发效率，⽅便重复使⽤，简化调试步骤，提升项⽬可维护性，便于多⼈协同开发。</p>
 
     <router-view></router-view>
   </section>
@@ -42,5 +42,9 @@ export default {
     color: #42b983;
     font-weight: bold;
   }
+}
+
+.p{
+  color: red;
 }
 </style>
