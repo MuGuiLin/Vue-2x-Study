@@ -46,5 +46,9 @@ export default {
 
 .p{
   color: red;
+  line-height: 36px;
+  text-indent: 2em;
+  text-align: left;
+  font-size: 18px;
 }
 </style>
