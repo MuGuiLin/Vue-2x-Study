@@ -1,7 +1,8 @@
 <template>
   <section>
     <h1>Vuex状态管理</h1>
-    <pre>
+    <pre class="line-numbers">
+      <code class="language-java">
       安装：vue add vuex 或 npm i vuex
 
       核心概念：vuex 依赖于 vue, 因为vuex用到了vue的数据响应适
@@ -14,6 +15,7 @@
         modules: {},  //模组 模块化
         getters:{}    //吸气剂（相当于store的计算属性）getter的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
       }
+      </code>
     </pre>
     <button type="button" @click="open">弹出Alert组件</button>
   </section>
@@ -30,12 +32,14 @@ export default {
     return {};
   },
   mounted() {
+    
     console.log(Store.mupiao = 666);
-    console.log(Store);
+    console.log(Store, this.$prismjs);
+    this.$prismjs.highlightAll();
   },
   methods: {
     open() {
-     
+     alert(123)
     }
   }
 };
