@@ -2,7 +2,9 @@
   <div id="app">
     <Nav></Nav>
     <hr />
+    <div class="main">
     <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -24,5 +26,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  .main{
+    width: 1280px;
+    margin: auto;
+  }
 }
 </style>
