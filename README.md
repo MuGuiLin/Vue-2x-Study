@@ -1,6 +1,6 @@
 # Vue-2x-Study
 
-Vue 2系列 研究
+Vue 2系列 探究
 
 
 ## Project setup
@@ -27,8 +27,10 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
+
 ### 在新版的vue-cli中安装ElementUI 
-```
+
+```js
 vue create my-app
 
 cd my-app
@@ -52,7 +54,7 @@ Choose the locale you want to load: // 选择您要加载的语言环境
 
 ### 自定义主题
 Element 的 theme-chalk 使用 SCSS 编写，如果你的项目也使用了 SCSS，那么可以直接在项目中改变 Element 的样式变量。新建一个样式文件，例如 element-variables.scss，写入以下内容：
-```
+```js
 /* 改变主题色变量 */
 $--color-primary: teal;
 
@@ -64,7 +66,7 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 之后，在项目的入口文件中，直接引入以上样式文件即可（无需引入 Element 编译好的 CSS 文件）：
 
-```
+```js
 import Vue from 'vue'
 import Element from 'element-ui'
 import './element-variables.scss'
@@ -72,10 +74,13 @@ import './element-variables.scss'
 Vue.use(Element)
 ```
 
+
+
 ### 全局完整引入 (注：如果用 vue add element 来安装这里就不用配置啦！)
+
 在 main.js 中写入以下内容：
 
-```
+```js
 import Vue from 'vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
