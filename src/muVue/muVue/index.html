@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./muVue.js"></script>
+    <style>
+        .box {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background:hsla(0,0%,100%,.9);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+    </style>
+</head>
+
+<body>
+    <section id="app">
+        <h1>{{name}}</h1>
+        <h2 class="box">
+            <time>{{time}}</time>
+        </h2>
+        <p m-text="name"></p>
+    </section>
+
+    <script>
+        const app = new muVue({
+            el: '#app',
+            data: {
+                name: 'muguilin',
+                time: new Date().toLocaleTimeString()
+            }
+            // data() {
+            //     return {
+            //         name: 'mupiao'
+            //     }
+            // }
+        });
+
+
+        setInterval(() => {
+            // app.time = new Date().toLocaleTimeString();
+            app.$data.time = new Date().toLocaleTimeString();
+        }, 1000)
+
+        console.log(app.time)
+    </script>
+</body>
+
+</html>
